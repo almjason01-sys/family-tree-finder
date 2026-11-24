@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Family Tree Finder</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header><a class="brand" href="./">Family Tree Finder</a><span>Private on this device</span><button id="guide">Research guide</button></header>
+<main>
+<section class="intro"><div><p class="eyebrow" id="workspace"></p><h1>Your family tree</h1><p>Follow the records. Keep the questions.</p></div><div class="actions"><button id="new">Start my tree</button><button id="add" class="primary">Add person</button></div></section>
+<div class="toolbar" aria-label="Tree controls">
+<label>View as <select id="focus"></select></label>
+<label>Layout <select id="layout"><option value="focus">Centered tree</option><option value="all">Whole family</option></select></label>
+<label>Search <input id="search" type="search" placeholder="Name"></label>
+<label>Side <select id="side"></select></label>
+<label>Surname <select id="surname"></select></label>
+</div>
+<div class="workbench">
+<section class="tree-panel" aria-label="Family tree">
+<div class="tree-head"><span id="tree-summary"></span><div class="actions"><button id="out" aria-label="Zoom out">−</button><button id="reset">Reset zoom</button><button id="in" aria-label="Zoom in">+</button></div></div>
+<div id="viewport" tabindex="0" aria-label="Tree canvas. Scroll or drag the background to pan."><div id="tree"></div></div>
+<div class="legend"><span class="badge confirmed">Confirmed</span><span class="badge lead">Lead / Believed</span><span class="badge ruled">Ruled out</span></div>
+</section>
+<aside id="card" aria-label="Person details"></aside>
+</div>
+<section class="utility" aria-label="Research and file tools">
+<button id="review">Two-pass review</button><button id="excluded">Do NOT add list</button><button id="heritage">Surname heritage</button>
+<button id="import">Import a tree</button><button id="export">Export or share</button><button id="handoff">Download Markdown handoff</button>
+</section>
+<p id="status" role="status"></p>
+</main>
+<dialog id="modal"><div class="dialog-head"><h2 id="dialog-title"></h2><button id="close" aria-label="Close dialog">×</button></div><div id="dialog-body"></div></dialog>
+<input type="file" id="file" accept=".json,.ged,.gedcom,.md,.markdown" hidden>
+</body>
+</html>
